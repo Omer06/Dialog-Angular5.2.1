@@ -1,0 +1,10 @@
+<kendo-dialog title="{{dialog.title}}" *ngIf="dialog.isOpen()" (close)="dialog.close()" [minWidth]="250" [width]="450">
+  <div *ngIf="!dialog.isState('Input')">{{dialog.text}} </div>
+  <input kendoInput *ngIf="dialog.isState('Input')" style="width: 100%"  [(ngModel)] = "dialog.input" class="k-textbox" />
+  <kendo-dialog-actions>
+      <button kendoButton (click)="yes()" *ngIf="dialog.isState('Dialog')" class="k-button"> Evet </button>
+      <button kendoButton (click)="no()" *ngIf="dialog.isState('Dialog')" class="k-button"> Hayır </button>
+      <button kendoButton (click)="ok()" *ngIf="dialog.isState('Input')" class="k-button"> Tanan </button>
+      <button kendoButton (click)="dialog.close()" class="k-button"> Kapat </button>
+  </kendo-dialog-actions>
+</kendo-dialog>
